@@ -69,7 +69,10 @@ project-root/
 │   └── main.js
 ├── images/
 │   └── (project images and logos)
+├── pdfs/
+│   └── ReddyNaresh_Resume.pdf
 └── README.md
+
 ```
 
 ## 📬 Contact Me
