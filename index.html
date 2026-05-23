@@ -23,8 +23,149 @@
     <meta property="twitter:title" content="Reddy Naresh - Software Developer Portfolio">
     <meta property="twitter:description" content="Portfolio of Reddy Naresh, a Software Developer specializing in Python, Django, Frontend Development, and DSA.">
     <meta property="twitter:image" content="images/NareshBlobImg.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;800&display=swap" rel="stylesheet">
+    <style>
+        /* Splash Screen Styles */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 99999;
+            background-color: #050505;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(229, 46, 113, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 138, 0, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(156, 39, 176, 0.1) 0%, transparent 60%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            transition: opacity 0.5s ease-out;
+        }
+        body.splash-active {
+            overflow: hidden !important; /* Prevent scrolling while splash is active */
+        }
+        #splash-screen .landing-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        #splash-screen .intro-text {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: #aaaaaa;
+            opacity: 0;
+            animation: splashFadeInDown 0.8s ease-out forwards;
+            text-transform: uppercase;
+        }
+        #splash-screen .main-name {
+            font-size: 5rem;
+            font-weight: 800;
+            letter-spacing: 5px;
+            margin: 10px 0;
+            background: linear-gradient(90deg, #ff8a00, #e52e71, #9c27b0, #ff8a00);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: splashGradientFlow 4s ease infinite, splashScaleUp 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+        #splash-screen .portfolio-text {
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 12px;
+            color: #e0e0e0;
+            opacity: 0;
+            animation: splashFadeInUp 0.8s ease-out forwards;
+            animation-delay: 1s;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+        #splash-screen .progress-container {
+            width: 250px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            opacity: 0;
+            animation: splashFadeIn 0.5s ease forwards;
+            animation-delay: 1.5s;
+            box-shadow: 0 0 10px rgba(255, 138, 0, 0.2);
+        }
+        #splash-screen .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #ff8a00, #e52e71, #9c27b0);
+            border-radius: 5px;
+            /* Exactly 3.5 seconds loading */
+            animation: splashLoading 3.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 1.5s;
+        }
+        @keyframes splashFadeInDown {
+            0% { opacity: 0; transform: translateY(-20px); filter: blur(5px); }
+            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes splashFadeInUp {
+            0% { opacity: 0; transform: translateY(20px); filter: blur(5px); }
+            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes splashScaleUp {
+            0% { opacity: 0; transform: scale(0.85); filter: blur(10px); }
+            100% { opacity: 1; transform: scale(1); filter: blur(0); }
+        }
+        @keyframes splashGradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes splashFadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes splashLoading {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        @media (max-width: 992px) {
+            #splash-screen .main-name { font-size: 4rem; }
+        }
+        @media (max-width: 768px) {
+            #splash-screen .main-name { font-size: 3rem; letter-spacing: 3px; }
+            #splash-screen .intro-text { font-size: 1rem; }
+            #splash-screen .portfolio-text { font-size: 1.2rem; letter-spacing: 8px; }
+            #splash-screen .progress-container { width: 200px; }
+        }
+        @media (max-width: 480px) {
+            #splash-screen .main-name { font-size: 2.2rem; letter-spacing: 2px; }
+            #splash-screen .intro-text { font-size: 0.9rem; letter-spacing: 2px; }
+            #splash-screen .portfolio-text { font-size: 1rem; letter-spacing: 5px; }
+            #splash-screen .progress-container { width: 150px; }
+        }
+    </style>
 </head>
-<body>
+<body class="splash-active">
+
+    <!-- SPLASH SCREEN OVERLAY -->
+    <div id="splash-screen">
+        <div class="landing-container">
+            <div class="intro-text">You are landing at</div>
+            <div class="main-name">REDDY NARESH</div>
+            <div class="portfolio-text">Portfolio</div>
+            
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- HEADER SECTION ------------------------------------------------------------------------->
     <header>
@@ -55,8 +196,8 @@
             </div>
             <div class="info">
                 <h1>Reddy Naresh</h1>
-                <h3>Python Full Stack Developer</h3>
-                <p>Building scalable web applications and AI-driven solutions. I bridge the gap between complex backend logic and intuitive user experiences.</p>
+                <h3>Software Development Engineer</h3>
+                <p>Specializing in backend development, workflow automation, and AI-powered applications using Python and Django. Passionate about building efficient and impactful enterprise software solutions.</p>
                 <a href="#contact" class="btn">Get in Touch <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <div class="home-img">
@@ -79,11 +220,11 @@
                 <div class="about-info">
                     <div class="description">
                         <h3>Driven by Innovation</h3>
-                        <h4>Specialized in <span>Python, Django</span> & <span>Full Stack Development</span></h4>
-                        <p>Aspiring Software Engineer with hands-on experience in full-stack web development using Python and Django. 
-                            Specialized in Data Structures & Algorithms, backend systems, and AI-powered applications. 
-                            I am passionate about engineering scalable, high-impact products that solve real-world problems. 
-                            Currently pursuing my final year of MCA at NSRIT, and having recently completed a Minor in CSE at IIT Mandi, 
+                        <h4>Software Development Engineer at <span>actyv.ai®</span></h4>
+                        <p>Specializing in backend development, workflow automation, and AI-powered applications using Python and Django. 
+                            Skilled in REST APIs, scalable system development, and problem-solving with a strong foundation in Data Structures & Algorithms. 
+                            Passionate about building efficient and impactful enterprise software solutions. 
+                            Having completed my MCA at NSRIT, and a Minor in CSE at IIT Mandi, 
                             I focus on continuous learning to advance my career in software development.
                         </p>
                     </div>
@@ -124,7 +265,7 @@
                             <li class="item">
                                 <span class="year">2024 - 2026</span>
                                 <p><span>Master of Computer Applications</span> - NSRIT(Autonomous) College</p>
-                                <p class="cgp">CGPA: 8.38/10.0</p>
+                                <p class="cgp">CGPA: 8.4/10.0</p>
                                 <!-- <a href="https://drive.google.com/file/d/1Jb7g_2Yv02FkQBKuGGnbPefkrdE_Y1EY/view?usp=sharing" target="_blank" style="color: black; font-size: .8rem; font-weight: 550;">View Academic Transcript – MCA</a> -->
                             </li>
                             <li class="item">
@@ -171,22 +312,23 @@
                                 <h5>Core & Backend</h5>
                                 <div class="skill-tags">
                                     <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
-                                    <span class="skill-tag"><i class="fas fa-database"></i> SQL (MySQL Workbench)</span>
-                                    <span class="skill-tag"><i class="fas fa-network-wired"></i> Computer Networks</span>
-                                    <span class="skill-tag"><i class="fas fa-code"></i> DSA</span>
-                                    <span class="skill-tag"><i class="fab fa-cuttlefish"></i> C Programming</span>
-                                    <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
+                                    <span class="skill-tag"><i class="fab fa-cuttlefish"></i> C</span>
+                                    <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+                                    <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
+                                    <span class="skill-tag"><i class="fas fa-server"></i> REST APIs</span>
+                                    <span class="skill-tag"><i class="fas fa-code"></i> Data Structures & Algorithms</span>
+                                    <span class="skill-tag"><i class="fas fa-code"></i> OOPs</span>
                                 </div>
                             </div>
 
                             <div class="skill-category">
                                 <h5>Tools & Platforms</h5>
                                 <div class="skill-tags">
+                                    <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
                                     <span class="skill-tag"><i class="fab fa-github"></i> GitHub</span>
                                     <span class="skill-tag"><i class="fas fa-code-branch"></i> VS Code</span>
-                                    <span class="skill-tag"><i class="fas fa-laptop-code"></i> Google Colab</span>
-                                    <span class="skill-tag"><i class="fas fa-cloud"></i> Render</span>
                                     <span class="skill-tag"><i class="fas fa-cloud-upload-alt"></i> Netlify</span>
+                                    <span class="skill-tag"><i class="fas fa-cloud"></i> Render</span>
                                 </div>
                             </div>
                         </div>
@@ -195,10 +337,24 @@
                 </div>
 
                 <div class="skills-description">
-                    <h3>Internship Experience</h3>
+                    <h3>Professional Experience</h3>
                 </div>
                 <div class="skills-info">
 
+                    <div class="experience-card">
+                        <div class="upper">
+                            <h3>Software Development Engineer-1</h3>
+                            <h5>Actyv.ai® - Bengaluru, Karnataka, India</h5>
+                            <span>May 2026 - Present</span>
+                        </div>
+                        <div class="hr"></div>
+                        <h4><label>Enterprise Workflow & Process Intelligence</label></h4>
+                        <p>Contributing to enterprise workflow and process intelligence solutions for global clients. 
+                            Involved in backend development, API integrations, workflow optimization, and operational solution support using modern technologies. 
+                            Supporting AI-driven process automation and digital transformation initiatives across enterprise business operations. 
+                            Collaborating with cross-functional teams on scalable technology solutions focused on productivity and automation.
+                        </p>
+                    </div>
                     <div class="experience-card">
                         <div class="upper">
                             <h3>Python Fullstack Intern</h3>
@@ -496,5 +652,22 @@
      <!-- JAVASCRIPT FILE --------------------------------------------------------------------->
       <script src="js/main.js"></script>
     
+      <!-- SPLASH SCREEN JS -->
+      <script>
+          window.addEventListener('load', function() {
+              // Exact 5 seconds visibility
+              setTimeout(function() {
+                  const splash = document.getElementById('splash-screen');
+                  if (splash) {
+                      splash.style.opacity = '0';
+                      setTimeout(function() {
+                          splash.style.display = 'none';
+                          document.body.classList.remove('splash-active');
+                      }, 500); // 0.5s fade out
+                  }
+              }, 5000);
+          });
+      </script>
+
 </body>
 </html>
