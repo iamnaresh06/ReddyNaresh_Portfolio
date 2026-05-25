@@ -2,7 +2,7 @@
 
 [![GitHub repo size](https://img.shields.io/github/repo-size/iamnaresh06/ReddyNaresh_Portfolio?style=flat-square)](https://github.com/iamnaresh06/ReddyNaresh_Portfolio)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/iamnaresh06/ReddyNaresh_Portfolio/blob/main/LICENSE)
-[![Visit site](https://img.shields.io/badge/Live%20Demo-Visit%20Site-green?style=flat-square)](https://iamnaresh06.github.io/ReddyNaresh_Portfolio/)
+[![Visit site](https://img.shields.io/badge/Live%20Demo-Visit%20Site-green?style=flat-square)](https://reddynaresh.netlify.app/)
 
 ## 📖 Overview
 A personal portfolio website that showcases my journey as a software developer – highlighting projects, skills, certifications, and professional experience. Built with **HTML, CSS, and JavaScript**, it is fully responsive and deployed via **GitHub Pages**.
@@ -22,7 +22,7 @@ A personal portfolio website that showcases my journey as a software developer �
 ---
 
 ## 🚀 Live Demo
-**Visit the live site:** https://iamnaresh06.github.io/ReddyNaresh_Portfolio/
+**Visit the live site:** https://reddynaresh.netlify.app/
 > Make sure **GitHub Pages** is enabled in the repository settings.
 
 ---
