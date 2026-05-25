@@ -62,7 +62,7 @@
             letter-spacing: 3px;
             color: #aaaaaa;
             opacity: 0;
-            animation: splashFadeInDown 0.8s ease-out forwards;
+            animation: splashFadeInDown 0.6s ease-out forwards;
             text-transform: uppercase;
         }
         #splash-screen .main-name {
@@ -76,8 +76,8 @@
             -webkit-text-fill-color: transparent;
             opacity: 0;
             transform: scale(0.9);
-            animation: splashGradientFlow 4s ease infinite, splashScaleUp 1s ease-out forwards;
-            animation-delay: 0.5s;
+            animation: splashGradientFlow 4s ease infinite, splashScaleUp 0.8s ease-out forwards;
+            animation-delay: 0.15s;
         }
         #splash-screen .portfolio-text {
             font-size: 1.5rem;
@@ -86,7 +86,7 @@
             color: #e0e0e0;
             opacity: 0;
             animation: splashFadeInUp 0.8s ease-out forwards;
-            animation-delay: 1s;
+            animation-delay: 0.3s;
             margin-bottom: 50px;
             text-transform: uppercase;
         }
@@ -97,8 +97,8 @@
             border-radius: 5px;
             overflow: hidden;
             opacity: 0;
-            animation: splashFadeIn 0.5s ease forwards;
-            animation-delay: 1.5s;
+            animation: splashFadeIn 0.4s ease forwards;
+            animation-delay: 0.45s;
             box-shadow: 0 0 10px rgba(255, 138, 0, 0.2);
         }
         #splash-screen .progress-bar {
@@ -106,9 +106,9 @@
             width: 0%;
             background: linear-gradient(90deg, #ff8a00, #e52e71, #9c27b0);
             border-radius: 5px;
-            /* Exactly 3.5 seconds loading */
-            animation: splashLoading 3.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            animation-delay: 1.5s;
+            /* Snappy 0.8s progress bar */
+            animation: splashLoading 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 0.45s;
         }
         @keyframes splashFadeInDown {
             0% { opacity: 0; transform: translateY(-20px); filter: blur(5px); }
@@ -196,7 +196,7 @@
             </div>
             <div class="info">
                 <h1>Reddy Naresh</h1>
-                <h3>Software Development Engineer</h3>
+                    <h3 class="brand-accent">Software Development Engineer at Actyv.ai®</h3>
                 <p>Specializing in backend development, workflow automation, and AI-powered applications using Python and Django. Passionate about building efficient and impactful enterprise software solutions.</p>
                 <a href="#contact" class="btn">Get in Touch <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -220,7 +220,7 @@
                 <div class="about-info">
                     <div class="description">
                         <h3>Driven by Innovation</h3>
-                        <h4>Software Development Engineer at <span>actyv.ai®</span></h4>
+                        <h4>Driving enterprise workflow & process intelligence at Actyv.ai®</h4>
                         <p>Specializing in backend development, workflow automation, and AI-powered applications using Python and Django. 
                             Skilled in REST APIs, scalable system development, and problem-solving with a strong foundation in Data Structures & Algorithms. 
                             Passionate about building efficient and impactful enterprise software solutions. 
@@ -229,6 +229,10 @@
                         </p>
                     </div>
                     <ul class="professional-list">
+                        <li class="list-item">
+                            <h3 class="role-badge">SDE-1</h3>
+                            <span>Full-time SDE at<br>Actyv.ai®</span>
+                        </li>
                         <li class="list-item">
                             <h3>07</h3>
                             <span>Months Internship<br>Experience</span>
@@ -343,7 +347,7 @@
 
                     <div class="experience-card">
                         <div class="upper">
-                            <h3>Software Development Engineer-1</h3>
+                            <h3 class="hero-subtitle">Software Development Engineer at Actyv.ai®</h3>
                             <h5>Actyv.ai® - Bengaluru, Karnataka, India</h5>
                             <span>May 2026 - Present</span>
                         </div>
@@ -654,19 +658,31 @@
     
       <!-- SPLASH SCREEN JS -->
       <script>
-          window.addEventListener('load', function() {
-              // Exact 5 seconds visibility
-              setTimeout(function() {
-                  const splash = document.getElementById('splash-screen');
-                  if (splash) {
-                      splash.style.opacity = '0';
-                      setTimeout(function() {
-                          splash.style.display = 'none';
-                          document.body.classList.remove('splash-active');
-                      }, 500); // 0.5s fade out
-                  }
-              }, 5000);
-          });
+window.addEventListener('load', function() {
+    // after page load, keep splash for 2.5s then fade out
+    setTimeout(function() {
+        const splash = document.getElementById('splash-screen');
+        if (splash) {
+            splash.style.opacity = '0';
+            setTimeout(function() {
+                splash.style.display = 'none';
+                document.body.classList.remove('splash-active');
+            }, 500);
+        }
+    }, 2500);
+});
+
+// fallback after 3.5s total (in case load never fires)
+setTimeout(function() {
+    const splash = document.getElementById('splash-screen');
+    if (splash && splash.style.display !== 'none') {
+        splash.style.opacity = '0';
+        setTimeout(function() {
+            splash.style.display = 'none';
+            document.body.classList.remove('splash-active');
+        }, 500);
+    }
+}, 3500);
       </script>
 
 </body>
