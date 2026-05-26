@@ -165,7 +165,7 @@ header.sticky .nav-bar {
 .home {
   position: relative;
   max-width: 1250px;
-  min-width: 100vh;
+  min-height: 100vh;
   margin-left: auto;
   margin-right: auto;
   padding: 4rem 2rem;
@@ -198,17 +198,19 @@ header.sticky .nav-bar {
   transform: scale(1.1);
 }
 
+.home-container .info h1,
 .home-container .info h2 {
   font-size: 3.2em;
   font-weight: 600;
-  line-height: 70px;
+  line-height: 1.2;
 }
 
 .home-container .info h3 {
   color: var(--third-color);
   font-size: 1.3em;
   font-weight: 600;
-  line-height: 50px;
+  line-height: 1.4;
+  margin-top: 10px;
 }
 
 .home-container .info p {
@@ -1266,6 +1268,7 @@ footer a {
   .home .home-container .info {
     margin-top: 350px;
   }
+  .home .home-container .info h1,
   .home .home-container .info h2 {
     font-size: 2.5rem;
   }
@@ -1346,6 +1349,16 @@ footer a {
   .home .home-container .info {
     font-size: 0.8rem;
   }
+  .home .home-container .info h1,
+  .home .home-container .info h2 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+  .home .home-container .info h3 {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin-top: 5px;
+  }
 
   .media-icons {
     margin-bottom: 80px;
@@ -1398,11 +1411,15 @@ footer a {
     color: #fff;
   }
 
+  .home .home-container .info h1,
   .home .home-container .info h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    line-height: 1.2;
   }
   .home .home-container .info h3 {
-    margin-top: -20px;
+    margin-top: 5px;
+    font-size: 1.1rem;
+    line-height: 1.4;
   }
   .home .home-container .info p {
     max-width: 305px;
